@@ -62,7 +62,6 @@ int main(int argc, const char *argv[]) {
   LOG(INFO) << "Mapped " << path << " to memory @ " << data;
   Lz4FrameReader reader({reinterpret_cast<unsigned char *>(data),
                          static_cast<size_t>(st.st_size)});
-  int out_fd = open("kernel.bin", O_RDWR | O_CREAT | O_CLOEXEC | O_TRUNC, 0644);
 
   for (const auto &block : reader.Blocks()) {
     Lz4BlockReader reader{block};

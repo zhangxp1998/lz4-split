@@ -1,10 +1,16 @@
 add_rules("mode.debug", "mode.release")
 add_requires("lz4", "glog")
 
+target("lz4_split")
+    set_kind("static")
+    add_files("lz4_reader.cpp")
+    add_headerfiles("lz4_reader.h")
+    add_packages("glog")
 
 target("main")
     set_kind("binary")
-    add_files("main.cpp", "lz4_reader.cpp")
+    add_deps("lz4_split")
+    add_files("main.cpp")
     add_packages("lz4", "glog")
 
 --
