@@ -7,10 +7,10 @@ target("lz4_split")
     add_headerfiles("lz4_reader.h")
     add_packages("glog")
 
-target("main")
+target("split_lz4_frame")
     set_kind("binary")
     add_deps("lz4_split")
-    add_files("main.cpp")
+    add_files("split_lz4_frame.cpp")
     add_packages("lz4", "glog")
 
 --
